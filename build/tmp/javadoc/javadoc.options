@@ -1,0 +1,13 @@
+-classpath 'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\build\\classes\\java\\main;C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\build\\resources\\main'
+-d 'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\build\\docs\\javadoc'
+-doctitle 'ED 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'ED 1.0-SNAPSHOT API'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\ArrayStack.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\Double_LinkedList.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\Exceptions\\FullStackException.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\LinkedList.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\LinkedStack.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\Node.java'
+'C:\\Users\\Helde\\OneDrive\\햞ea de Trabalho\\ESTG\\ED\\src\\main\\java\\ED\\StackADT.java'

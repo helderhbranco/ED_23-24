@@ -1,12 +1,12 @@
 package ED;
 
-public class LinkedQueue implements  QueueADT{
+public class LinkedQueue implements QueueADT {
 
-private Node front;
+    private Node front;
     private Node rear;
     private int size;
 
-    public LinkedQueue(){
+    public LinkedQueue() {
         front = null;
         rear = null;
         size = 0;
@@ -57,10 +57,10 @@ private Node front;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String result = "";
         Node current = front;
-        while(current != null){
+        while (current != null) {
             result += current.getData() + "\n";
             current = current.getNext();
         }

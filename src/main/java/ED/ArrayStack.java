@@ -7,6 +7,7 @@ import java.util.EmptyStackException;
 
 public class ArrayStack<T> implements StackADT<T> {
 
+    private final int FARTOR = 2;
     // This is the default capacity of the stack
     private final int DEFAULT_CAPACITY = 100;
 
@@ -33,12 +34,9 @@ public class ArrayStack<T> implements StackADT<T> {
      *
      */
     @Override
-    public void push(T data) throws FullStackException {
-        if (size() == stack.length) {
-            throw new FullStackException("Stack is full");
-        } else {
-            stack[top++] = data;
-        }
+    public void push(T data) {
+        expandCapacity();
+        stack[top++] = data;
     }
 
     /*
@@ -67,7 +65,7 @@ public class ArrayStack<T> implements StackADT<T> {
         if (isEmpty() == true) {
             throw new EmptyStackException();
         } else {
-            return stack[top -1];
+            return stack[top - 1];
         }
     }
 
@@ -109,18 +107,26 @@ public class ArrayStack<T> implements StackADT<T> {
         }
     }
 
+    private void expandCapacity() {
+        if (size() == stack.length) {
+
+            T[] larger = (T[]) (new Object[stack.length * FARTOR]);
+            for (int i = 0; i < stack.length; i++) {
+                larger[i] = stack[i];
+            }
+            stack = larger;
+        }
+    }
+
     public static void main(String[] args) {
         ArrayStack<String> stack = new ArrayStack<>();
 
         //PUSH
-        try {
             stack.push("!");
             stack.push("World");
             stack.push("Hello");
             stack.push("Error");
-        } catch (FullStackException e) {
-            System.out.println("Stack is full");
-        }
+
 
         System.out.println("1ºPrint");
         stack.print();

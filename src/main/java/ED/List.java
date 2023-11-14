@@ -19,11 +19,6 @@ public abstract class List<T> implements ListADT {
     private int count;
     private Node<T> head, tail;
 
-    public int getCount() {
-        return count;
-
-    }
-
     public Node<T> getHead() {
         return head;
     }
@@ -31,6 +26,13 @@ public abstract class List<T> implements ListADT {
     public Node<T> getTail() {
         return tail;
     }
+
+    public void setHead(Node<T> head) { this.head = head;}
+
+    public void setTail(Node<T> tail) { this.tail = tail;}
+    public int getCount() { return count;}
+
+    public void setCount(int count) { this.count = count;}
 
     public T removeFirst() throws EmptyCollectionException {
         if (isEmpty()) {
@@ -166,7 +168,7 @@ public abstract class List<T> implements ListADT {
         public T next() {
             try {
                 if (!hasNext()) {
-                    throw new NoSuchElementException();
+                    throw new NoSuchElementException("No such element");
                 }
             } catch (NoSuchElementException e) {
                 e.printStackTrace();

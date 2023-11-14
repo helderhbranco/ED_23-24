@@ -18,6 +18,9 @@ public class Node<T> {
         this.next = null;
     }
 
+    public Node() {
+    }
+
 
     public Node<T> getNext() {
         return next;

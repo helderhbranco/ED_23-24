@@ -7,5 +7,5 @@ public interface OrderedListADT<T> extends ListADT<T> {
      *
      * @param element the element to be added to this list
      */
-    void add(T element);
+    void add(Comparable element);
 }

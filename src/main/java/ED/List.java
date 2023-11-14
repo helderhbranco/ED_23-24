@@ -2,10 +2,13 @@ package ED;
 
 import ED.Exceptions.ElementNotFoundException;
 import ED.Exceptions.EmptyCollectionException;
+import ED.Exceptions.NoSuchElementException;
+
+import java.util.Iterator;
 
 /**
  * List.java
- *
+ * <p>
  * This abstract class provides a partial implementation of the List interface.
  *
  * @param <T>
@@ -13,8 +16,21 @@ import ED.Exceptions.EmptyCollectionException;
 
 
 public abstract class List<T> implements ListADT {
-    protected int count;
-    protected Node<T> head, tail;
+    private int count;
+    private Node<T> head, tail;
+
+    public int getCount() {
+        return count;
+
+    }
+
+    public Node<T> getHead() {
+        return head;
+    }
+
+    public Node<T> getTail() {
+        return tail;
+    }
 
     public T removeFirst() throws EmptyCollectionException {
         if (isEmpty()) {
@@ -96,7 +112,7 @@ public abstract class List<T> implements ListADT {
         return tail.getData();
     }
 
-    public boolean contains( Object target) throws EmptyCollectionException {
+    public boolean contains(Object target) throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException();
         }
@@ -119,7 +135,7 @@ public abstract class List<T> implements ListADT {
     public int size() {
         return count;
     }
-    
+
     public String toString() {
         String result = "";
         Node<T> current = head;
@@ -128,5 +144,43 @@ public abstract class List<T> implements ListADT {
             current = current.getNext();
         }
         return result;
+    }
+
+    public Iterator<T> iterator() {
+        return new ListIterator<T>();
+    }
+
+    public class ListIterator<T> implements Iterator<T> {
+        private int count;
+        private Node<T> current;
+
+        public ListIterator() {
+            current = (Node<T>) head;
+            count = 0;
+        }
+
+        public boolean hasNext() {
+            return (current != null);
+        }
+
+        public T next() {
+            try {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+            }
+            T result = current.getData();
+            current = current.getNext();
+            count++;
+            return result;
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+
     }
 }

@@ -2,7 +2,6 @@ package ED;
 
 import ED.Exceptions.ElementNotFoundException;
 import ED.Exceptions.EmptyCollectionException;
-
 import java.util.Iterator;
 
 public interface ListADT<T> extends Iterable<T> {

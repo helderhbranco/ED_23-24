@@ -68,7 +68,7 @@ public abstract class List<T> implements ListADT {
         return result;
     }
 
-    public T remove(Object element) throws ElementNotFoundException, EmptyCollectionException {
+    public T remove(T data) throws ElementNotFoundException, EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException();
         }

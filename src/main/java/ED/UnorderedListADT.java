@@ -5,11 +5,11 @@ public interface UnorderedListADT<T> extends ListADT<T> {
      * Adds the specified element to this list at
      * the proper location
      *
-     * @param element the element to be added to this list
+     * @param data the element to be added to this list
      */
-    void addToFront(T element);
+    void addToFront(T data);
 
-    void addToRear(T element);
+    void addToRear(T data);
 
-    void addAfter(T element);
+    void addAfter(T data);
 }

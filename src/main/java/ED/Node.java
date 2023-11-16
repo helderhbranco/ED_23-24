@@ -2,6 +2,7 @@ package ED;
 
 public class Node<T> {
 
+
     private T data;
     private Node<T> next; // a link to another Node object
     private Node<T> previous; // a link to another Node object
@@ -18,7 +19,7 @@ public class Node<T> {
         this.next = null;
     }
 
-    public Node() {
+    public Node(T data) {
     }
 
 

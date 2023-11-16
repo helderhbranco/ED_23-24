@@ -47,6 +47,7 @@ public abstract class List<T> implements ListADT {
         return result;
     }
 
+    @Override
     public T removeLast() throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException();
@@ -68,7 +69,8 @@ public abstract class List<T> implements ListADT {
         return result;
     }
 
-    public T remove(T data) throws ElementNotFoundException, EmptyCollectionException {
+    @Override
+    public T remove(Object data) throws ElementNotFoundException, EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException();
         }
@@ -76,7 +78,7 @@ public abstract class List<T> implements ListADT {
         Node<T> previous = null;
         Node<T> current = head;
         while (current != null && !found) {
-            if (element.equals(current.getData())) {
+            if (data.equals(current.getData())) {
                 found = true;
             } else {
                 previous = current;
@@ -100,6 +102,7 @@ public abstract class List<T> implements ListADT {
         return current.getData();
     }
 
+    @Override
     public T first() throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException();

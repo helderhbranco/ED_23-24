@@ -8,6 +8,10 @@ public class LinkedList <T> {
         head = null;
     }
 
+    public Node<T> getNext(){
+        return head;
+    }
+
     public void add(T data) {
         Node newNode = new Node(data, null);
         if (head == null) {

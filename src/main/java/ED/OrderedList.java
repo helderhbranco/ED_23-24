@@ -1,7 +1,9 @@
 package ED;
-import ED.Node;
+import ED.Exceptions.NoSuchElementException;
 
-public class OrderedList <T> extends List implements OrderedListADT{
+import java.util.Iterator;
+
+public class OrderedList<T extends Comparable<T>> extends List<T> implements OrderedListADT {
 
     public OrderedList(){
         super();
@@ -19,7 +21,7 @@ public class OrderedList <T> extends List implements OrderedListADT{
             Node<T> current = getHead();
             Node<T> previous = null;
 
-            while (current != null && data.compareTo(current.getData()) > 0) {
+            while (current != null && data.compareTo(current.getData()) ==0) {
                 previous = current;
                 current = current.getNext();
             }
@@ -43,5 +45,64 @@ public class OrderedList <T> extends List implements OrderedListADT{
 
         setCount(getCount() + 1);
     }
+
+    public Iterator iterator() {
+        return new ListIterator<>();
+    }
+
+    public class ListIterator<T> implements Iterator<T> {
+        private int count;
+        private Node<T> current;
+
+        public ListIterator() {
+            current = (Node<T>) getHead();
+            count = 0;
+        }
+
+        public boolean hasNext() {
+            return (current != null);
+        }
+
+        public T next() {
+            try {
+                if (!hasNext()) {
+                    throw new NoSuchElementException("No such element");
+                }
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+            }
+            T result = current.getData();
+            current = current.getNext();
+            count++;
+            return result;
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+
+    }
+
+    //main para testar esta classe e o iterator
+
+    public static void main(String[] args) {
+        OrderedList<Integer> list = new OrderedList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(0);
+        list.add(5);
+        list.add(6);
+        list.add(7);
+        list.add(8);
+        list.add(9);
+        Iterator<Object> it = list.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+
 
 }

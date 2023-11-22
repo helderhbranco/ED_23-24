@@ -36,7 +36,7 @@ public abstract class List<T> implements ListADT {
 
     public T removeFirst() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         T result = head.getData();
         head = head.getNext();
@@ -50,7 +50,7 @@ public abstract class List<T> implements ListADT {
     @Override
     public T removeLast() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         T result = tail.getData();
         Node<T> previous = null;
@@ -72,7 +72,7 @@ public abstract class List<T> implements ListADT {
     @Override
     public T remove(Object data) throws ElementNotFoundException, EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         boolean found = false;
         Node<T> previous = null;
@@ -105,21 +105,21 @@ public abstract class List<T> implements ListADT {
     @Override
     public T first() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         return head.getData();
     }
 
     public T last() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         return tail.getData();
     }
 
     public boolean contains(Object target) throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("A coleção está vazia");
         }
         boolean found = false;
         Node<T> current = head;
@@ -151,8 +151,8 @@ public abstract class List<T> implements ListADT {
         return result;
     }
 
-    public Iterator<T> iterator() {
-        return new ListIterator<T>();
+    public Iterator<Object> iterator() {
+        return new ListIterator<>();
     }
 
     public class ListIterator<T> implements Iterator<T> {
